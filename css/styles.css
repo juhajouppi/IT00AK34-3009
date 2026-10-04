@@ -1,0 +1,37 @@
+/* Värit Teknoksen väripaletista "Rustiikkinen runsas" */
+
+body {
+    background-color: #f0dfc1;
+    width: 80vw;
+    margin: 15px;
+
+}
+
+header,
+footer {
+    background-color: #ddcea3;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+/* Yhtenäiset otsikot  */
+h1,
+h2,
+h3 {
+    color: #a2793a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* Kokeillaan alkuun kaikki tekstit samanalaisina */
+p,
+ol,
+ul {
+    color: #8a4838;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+/* Linkeille pitää vielä keksiä sopivat värit */
