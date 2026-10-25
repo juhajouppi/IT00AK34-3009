@@ -1,21 +1,16 @@
 /* Värit Teknoksen väripaletista "Rustiikkinen runsas" */
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 body {
     background-color: #f0dfc1;
-    width: 80vw;
-    margin: 15px;
+    color: #8a4838;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
 
 }
-
-header,
-footer {
-    background-color: #ddcea3;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-
 /* Yhtenäiset otsikot  */
 h1,
 h2,
@@ -24,14 +19,72 @@ h3 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-/* Kokeillaan alkuun kaikki tekstit samanalaisina */
-p,
-ol,
-ul {
-    color: #8a4838;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
+/* Valitaan päälayout gridiksi, vaikka alkuun tuleekin vain yksi sarake */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /*nimetyt alueet*/
+    grid-template-areas: 
+    "header"
+    "nav"
+    "main"
+    "footer";
+    grid-template-rows: 
+    auto
+    auto
+    1fr
+    auto;
+    min-height: 100vh;
+    /*margin: 0 auto;*/ /* keskittää layoutin vaakasuunnassa  */
+    
+}
+.header {
+    grid-area: header; 
+    background-color: #ddcea3;
+    text-align: center;
+    padding: 20px;
+}
+.nav {
+    grid-area: nav;
+    background-color: #ddcea3;
+    padding-left: 10px;
 }
 
-/* Linkeille pitää vielä keksiä sopivat värit */
+ /* Valikkonauha flexillä */
+ .nav ul {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+}
+
+.nav a {
+    display: block; 
+    color: #8a4838;
+    text-decoration: none;
+    /* Taustan värinen eli näkymätön kehys */
+    border: 1px solid #ddcea3;
+    padding: 5px 10px;
+}
+
+.nav a:hover, .nav a:focus {
+    border: 1px solid #8a4838;
+}
+/* Aktiivisen sivun korostus */
+.nav a.active {
+    border: 1px solid #8a4838;
+    background-color: #f0dfc1;
+}
+
+.main {
+    grid-area: main;
+    margin: 0 20px;
+}
+.main ul, ol{
+    margin-left: 15px;
+}
+.footer {
+    grid-area: footer;
+    background-color: #ddcea3;
+    text-align: center;
+    padding: 20px;
+}
