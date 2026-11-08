@@ -52,6 +52,7 @@ h3 {
     grid-area: nav;
     background-color: #ddcea3;
     padding-left: 10px;
+    /* Kiinnitetään sivun ylälaitaan */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -94,6 +95,7 @@ h3 {
 .sivukuva {
     grid-area: sivukuva;
     display: none;
+    /* Lisätään kuva taustakuvana, jotta korkeus skaalautuun sivun muun sisällön mukaan */
     background-image: url("../img/pahvi_440_1280.webp");
     background-repeat: no-repeat;
     background-position: center top;
@@ -101,18 +103,22 @@ h3 {
     background-clip: content-box;
     border-radius: 7px;
 }
+/* Kuville vähän tilaa hengittää */
 .kuvat {
     padding: 20px;
 }
+/*  Lisätään mahdollisuus skaalata pienemmäksi, jos sivusuuntainen
+    tila käy ahtaaksi */
 .kuvat img {
     display: block;
     max-width: 100%;
     height: auto;
+    border-radius: 7px;
 }
 .videoalue {
     grid-area: videoalue;
 }
-
+/* Videollekin mahdollisuus skaalata pienemmäksi, jos tila käy ahtaaksi */
 video {
     display: block;
     max-width: 100%;
