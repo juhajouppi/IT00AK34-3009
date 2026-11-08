@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: #f0dfc1;
     color: #8a4838;
@@ -19,24 +20,27 @@ h3 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Valitaan päälayout gridiksi, vaikka alkuun tuleekin vain yksi sarake */
+/*  Valitaan päälayout gridiksi, mobile first-ajattelulla 
+    lähdetään liikkeelle yhdellä sarakkeella */
 .container {
     display: grid;
     grid-template-columns: 1fr;
-    /*nimetyt alueet*/
-    grid-template-areas: 
-    "header"
-    "nav"
-    "main"
-    "footer";
-    grid-template-rows: 
-    auto
-    auto
-    1fr
-    auto;
+
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "videoalue"
+        "footer";
+
+    grid-template-rows:
+        auto
+        auto
+        1fr
+        auto
+        auto;
+
     min-height: 100vh;
-    /*margin: 0 auto;*/ /* keskittää layoutin vaakasuunnassa  */
-    
 }
 .header {
     grid-area: header; 
@@ -48,6 +52,9 @@ h3 {
     grid-area: nav;
     background-color: #ddcea3;
     padding-left: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
  /* Valikkonauha flexillä */
@@ -82,9 +89,59 @@ h3 {
 .main ul, ol{
     margin-left: 15px;
 }
+/*  Mainin rinnalle oma alue kuvituskuvalle, joka oletuksena ei ole
+    käytössä (kapealla näytöllä) */
+.sivukuva {
+    grid-area: sivukuva;
+    display: none;
+    background-image: url("../img/pahvi_440_1280.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-clip: content-box;
+    border-radius: 7px;
+}
+.kuvat {
+    padding: 20px;
+}
+.kuvat img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.videoalue {
+    grid-area: videoalue;
+}
+
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 7px;
+}
+
 .footer {
     grid-area: footer;
     background-color: #ddcea3;
     text-align: center;
     padding: 20px;
+}
+
+/*  Lisätään pääosion rinnalle kuvituskuva, jos näyttö on vähintään
+    1000px leveä */
+@media (min-width: 1000px) {
+    .container {
+        grid-template-columns: minmax(0, 1fr) 440px 15px;
+        grid-template-areas:
+            "header header header"
+            "nav nav nav"
+            "main sivukuva ."
+            "videoalue videoalue videoalue"
+            "footer footer footer";
+    }
+
+    .sivukuva {
+        display: block;
+    }
 }

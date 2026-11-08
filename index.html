@@ -8,6 +8,7 @@
 
     <title>Tietoa aaltopahvista</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/icon.svg" type="image/svg+xml">
 </head>
 
 <body>
@@ -57,7 +58,11 @@
                 <li>Suojaavat pakkausmateriaalit</li>
                 <li>Muutto- ja varastolaatikot</li>
             </ol>
-
+            <div class="kuvat">
+                <figure><img src="img/pahvilaatikoita_640_357.webp" alt="Havainnekuva aaltopahvipakkauksista varastossa" width="640" height="357">
+                    <figcaption>Aaltopahvista valmistetaan mm. kuljetuspakkauksia </figcaption>
+                </figure>
+            </div>
             <h2>Aaltopahvin hyödyt</h2>
 
             <p>
@@ -68,6 +73,16 @@
             </p>
 
         </main>
+        <!-- Lisätään tyhjä alue kuvituskuvalle, joka tulee tekstin viereen -->
+        <aside class="sivukuva" aria-hidden="true"></aside>
+
+        <section class="videoalue">
+            <video controls preload="metadata"
+                   poster="img/laatikko_640_420.webp"
+                   width="640" height="360" loop>
+                <source src="media/video_640_360.mp4" type="video/mp4">
+            </video>
+        </section>
 
         <footer class="footer">
             <p>Web-kehittämisen perusteet harjoitussivusto &copy; Juha Jouppi</p>
